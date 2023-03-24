@@ -21,7 +21,7 @@ function act_status()
 end
 
 function refresh_data()
-	sret=luci.sys.call("/usr/share/chinadns-ng/chinadns-ng_update.sh 2>/dev/null")
+	sret=luci.sys.call("/usr/bin/chinadns-ng-daily.sh 2>/dev/null")
 	if sret== 0 then
 		retstring ="0"
 	else
