@@ -6,10 +6,10 @@ PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
-#LUCI_TITLE:=LuCI support for chinadns-ng
-#LUCI_DESCRIPTION:=LuCI Support for chinadns-ng.
-#LUCI_DEPENDS:=+chinadns-ng +wget
-#LUCI_PKGARCH:=all
+LUCI_TITLE:=LuCI support for chinadns-ng
+LUCI_DESCRIPTION:=LuCI Support for chinadns-ng.
+LUCI_DEPENDS:=+chinadns-ng +wget
+LUCI_PKGARCH:=all
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
@@ -23,7 +23,7 @@ define Package/chinadns-ng/conffiles
 /etc/chinadns-ng/blacklist.txt
 endef
 
-define Package/luci-app-transparent-proxy/install
+define Package/luci-app-chinadns-ng/install
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/chinadns-ng.*.lmo $(1)/usr/lib/lua/luci/i18n/
 endef
 # call BuildPackage - OpenWrt buildroot signature
