@@ -23,4 +23,7 @@ define Package/chinadns-ng/conffiles
 /etc/chinadns-ng/blacklist.txt
 endef
 
+define Package/luci-app-transparent-proxy/install
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/chinadns-ng.*.lmo $(1)/usr/lib/lua/luci/i18n/
+endef
 # call BuildPackage - OpenWrt buildroot signature
