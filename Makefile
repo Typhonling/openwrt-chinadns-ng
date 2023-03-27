@@ -15,7 +15,7 @@ include $(TOPDIR)/feeds/luci/luci.mk
 
 define Build/Prepare
 	$(foreach po,$(wildcard ${CURDIR}/po/zh-cn/*.po), \
-		po2lmo $(po) $(PKG_BUILD_DIR)/$(patsubst %.po,%.lmo,$(notdir $(po)));)
+		po2lmo $(po) ${CURDIR}/po/zh-cn/$(patsubst %.po,%.lmo,$(notdir $(po)));)
 endef
 
 define Package/chinadns-ng/conffiles
@@ -23,7 +23,7 @@ define Package/chinadns-ng/conffiles
 /etc/chinadns-ng/blacklist.txt
 endef
 
-define Package/luci-app-chinadns-ng/install
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/chinadns-ng.*.lmo $(1)/usr/lib/lua/luci/i18n/
+define Package/(PKG_NAME)/install
+	$(INSTALL_DATA) ${CURDIR}/po/zh-cn/*.lmo $(1)/usr/lib/lua/luci/i18n/
 endef
 # call BuildPackage - OpenWrt buildroot signature
